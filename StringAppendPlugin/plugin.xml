@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="String Append"
+            id="StringAppend.commands.category">
+      </category>
+      <command
+            name="Add Append Command"
+            categoryId="StringAppend.commands.category"
+            id="StringAppend.commands.addAppendCommand">
+      </command>
+      <command
+            name="Remove Append Command"
+            categoryId="StringAppend.commands.category"
+            id="StringAppend.commands.removeAppendCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="StringAppend.commands.addAppendCommand"
+            class="stringappend.handlers.AddAppendHandler">
+      </handler>
+      <handler
+            commandId="StringAppend.commands.removeAppendCommand"
+            class="stringappend.handlers.RemoveAppendHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="StringAppend.commands.addAppendCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="StringAppend.commands.removeAppendCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+8"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="StringAppend.toolbars.sampleToolbar">
+            <command
+                  commandId="StringAppend.commands.addAppendCommand"
+                  icon="icons/add_code.png"
+                  tooltip="Add Append"
+                  id="StringAppend.toolbars.addAppendCommand">
+            </command>
+            <command
+                  commandId="StringAppend.commands.removeAppendCommand"
+                  icon="icons/copy_code.png"
+                  tooltip="Remove Append"
+                  id="StringAppend.toolbars.removeAppendCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
